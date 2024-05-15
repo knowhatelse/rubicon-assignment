@@ -1,0 +1,7 @@
+<div class="search-container" [ngClass]="{'search-container-active': isInputActive}">
+    <div id="search-icon-container">
+        <img *ngIf="!isInputActive" src="..\..\assets\icons\search-black.png">
+        <img *ngIf="isInputActive" src="..\..\assets\icons\search-white.png">
+    </div>
+    <input id="search-input" type="text" placeholder="Search" (focus)="inputFocus()" (blur)="inputBlur()">
+</div>
