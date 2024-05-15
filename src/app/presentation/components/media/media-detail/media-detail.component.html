@@ -1,0 +1,16 @@
+<div id="media-detail-container">
+    <div id="media-btn-container" (mouseenter)="onHover(true)" (mouseleave)="onHover(false)">
+        <div id="media-icon-holder">
+            <img *ngIf="!isButtonHovered" src="..\..\..\assets\icons\arrow\arrow.png">
+            <img *ngIf="isButtonHovered" src="..\..\..\assets\icons\arrow\arrow-accent.png">
+        </div>
+        <p [ngClass]="{'media-btn-text-hover': isButtonHovered, 'media-btn-text': !isButtonHovered}">Back</p>
+    </div>
+    <div id="media-image-container">
+        <img id="media-cover-image" src="https://i.ebayimg.com/images/g/gnEAAOSwP~tW4HMS/s-l1200.webp" >
+    </div>
+    <div id="media-info-container">
+        <p id="media-info-title">Titanic</p>
+        <p id="media-info-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nobis error eligendi numquam repudiandae minus beatae unde laudantium distinctio ipsam sunt, in quo quas, a nam labore officiis illo, pariatur necessitatibus?Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates exercitationem debitis deserunt tempora distinctio nam reprehenderit hic sint a quae fugiat porro illo neque blanditiis, omnis perspiciatis deleniti nulla commodi!</p>
+    </div>
+</div>
