@@ -1,0 +1,46 @@
+#tab-container {
+    width: 250;
+    height: 35px;
+    display: flex;
+    border: 2px solid black;
+    border-radius: 20px;
+    box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.5);
+}
+
+#tab-movies {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+#tab-tv-shows {
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.tab-selector {
+    width: 125px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: large;
+    border: none;
+    background-color: transparent;
+}
+
+.tab-selected {
+    background-color: #000000;
+    color: #803a0b;
+}
+
+
+.tab-not-selected {
+    color: #000000;
+    transition: all 0.2s ease-in;
+}
+
+.tab-not-selected:hover {
+    background-color: rgba(0, 0, 0, 0.20);
+    cursor: pointer;
+}
