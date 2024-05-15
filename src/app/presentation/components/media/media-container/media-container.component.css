@@ -1,0 +1,14 @@
+#media-container {
+    width: 70vw;
+    height: 500px;
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+}
+
+.media-row {
+    display: flex;
+    justify-content: space-around;
+    /* background-color: blue; */
+    margin-bottom: 50px;
+}

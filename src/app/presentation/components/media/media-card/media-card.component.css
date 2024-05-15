@@ -1,0 +1,44 @@
+#media-card {
+    width: 400px;
+    height: 300px;
+    border: 2px solid #000000;
+    box-shadow: 0 0 30px 5px rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #000000;
+    font-weight: bold;
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+#media-card:hover {
+    transform: scale(1.2);
+    border: 2px solid #FFFFFF;
+    box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.5);
+    background-color: #000000;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+#media-image-container {
+    background-color: #000000;
+    height: 75%;
+    width: 100%;
+}
+
+#media-image {
+    display: block;
+    height: 100%;
+    width: 100%;
+    object-fit:fill;
+}
+
+#media-title-container {
+    height: 25%;
+    width: 90%;
+    display: flex;
+    align-items: center;
+}
