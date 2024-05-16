@@ -2,7 +2,7 @@ import { Mapper } from "../../../core/base/mapper";
 import { MovieResult } from "../../../core/models/movie/movie-result.model";
 import { MovieResultDto } from "../../dtos/movie/movie-result.dto";
 
-export class MovieMapper extends Mapper<MovieResult, MovieResultDto> {
+export class MovieResultMapper extends Mapper<MovieResult, MovieResultDto> {
 
     override mapFrom(param: MovieResult): MovieResultDto {
         throw new Error("Method not implemented.");
