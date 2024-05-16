@@ -2,7 +2,7 @@ import { Mapper } from "../../../core/base/mapper";
 import { TvSerieResult } from "../../../core/models/tv-serie/tv-serie-result.model";
 import { TvSerieResultDto } from "../../dtos/tv-serie/tv-serie-result.dto";
 
-export class TvSerieMapper extends Mapper<TvSerieResult, TvSerieResultDto> {
+export class TvSerieResultMapper extends Mapper<TvSerieResult, TvSerieResultDto> {
     
     override mapFrom(param: TvSerieResult): TvSerieResultDto {
         throw new Error("Method not implemented.");

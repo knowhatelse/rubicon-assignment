@@ -2,7 +2,7 @@ import { Mapper } from "../../../core/base/mapper";
 import { TvSerieDetails } from "../../../core/models/tv-serie/tv-serie.details.model";
 import { TvSerieDetailsDto } from "../../dtos/tv-serie/tv-serie-details.dto";
 
-export class TvSerieInfoMapper extends Mapper<TvSerieDetails, TvSerieDetailsDto> {
+export class TvSerieDetailsMapper extends Mapper<TvSerieDetails, TvSerieDetailsDto> {
 
     override mapFrom(param: TvSerieDetails): TvSerieDetailsDto {
         return {
