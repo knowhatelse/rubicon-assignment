@@ -7,7 +7,7 @@ import { ProductionCountry } from "../production/production-country.model"
 import { Season } from "./season.model"
 import { SpokenLanguage } from "../info/spoken-language.model"
 
-export interface Root {
+export interface TvSerieDetails {
     adult: boolean
     backdrop_path: string
     created_by: CreatedBy[]

@@ -1,6 +1,6 @@
 export interface TvSerieResult {
     adult: boolean
-    backdrop_path: string
+    backdrop_path?: string
     genre_ids: number[]
     id: number
     origin_country: string[]
@@ -8,7 +8,7 @@ export interface TvSerieResult {
     original_name: string
     overview: string
     popularity: number
-    poster_path: string
+    poster_path?: string
     first_air_date: string
     name: string
     vote_average: number
