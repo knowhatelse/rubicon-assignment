@@ -1,5 +1,6 @@
 export const environment = {
     production: false,
+    defaultTabSelected: "tv-shows",
     apiUrlImages: 'https://image.tmdb.org/t/p/w1280',
     apiUrl: 'https://api.themoviedb.org/3/',
     ytUrl: "https://www.youtube.com/embed/",

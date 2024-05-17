@@ -28,7 +28,7 @@ export class MainContainerComponent implements OnInit {
         private changeDetector: ChangeDetectorRef,
         private searchService: ISearchService,
         private stateService: IStateService
-    ) { 
+    ) {
         this.getState();
     }
 
@@ -38,9 +38,29 @@ export class MainContainerComponent implements OnInit {
     }
 
     private getState(): void {
-        const currentState = this.stateService.getState();
-        this.currentTab = currentState.selectedTab;
-        this.currentSearchQuery = currentState.querySeach;
+        this.currentTab = this.stateService.getState().selectedTab;
+        this.currentSearchQuery = this.stateService.getState().querySeach;
+    }
+
+    private search() {
+        this.searchService.getSearchQuery().subscribe(sq => {
+            this.currentSearchQuery = sq;
+            if (sq !== '') {
+                this.switchSearch(sq);
+
+            } else {
+                this.switchTab();
+            }
+        });
+    }
+
+    private switchSearch(searchQuery: string) {
+        this.stateService.setQuerySearchState(searchQuery);
+        if (this.currentTab === 'movies') {
+            this.searchMovies(searchQuery);
+        } else {
+            this.searchTvSeries(searchQuery);
+        }
     }
 
     private tab() {
@@ -57,8 +77,10 @@ export class MainContainerComponent implements OnInit {
         } else {
             if (this.currentTab === 'movies') {
                 this.getTopRatedMovies();
+                this.stateService.setTabState('movies');
             } else {
                 this.getTopRatedTvSeries();
+                this.stateService.setTabState('tv-shows')
             }
         }
     }
@@ -81,27 +103,6 @@ export class MainContainerComponent implements OnInit {
             },
             error: error => console.error(error)
         });
-    }
-
-    private search() {
-        this.searchService.getSearchQuery().subscribe(sq => {
-            this.currentSearchQuery = sq;
-            this.stateService.setQuerySearchState(sq);
-
-            if (sq !== '') {
-                this.switchSearch(sq);
-            } else {
-                this.switchTab();  
-            }
-        });
-    }
-
-    private switchSearch(searchQuery: string) {
-        if (this.currentTab === 'movies') {
-            this.searchMovies(searchQuery);
-        } else {
-            this.searchTvSeries(searchQuery);
-        }
     }
 
     private searchMovies(searchQuery: string): void {

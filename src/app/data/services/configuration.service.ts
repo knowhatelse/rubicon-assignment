@@ -26,4 +26,8 @@ export class ConfigurationService implements IConfigurationService {
   getYouTubeUrl(): string {
     return environment.ytUrl;
   }
+
+  getDefaultTabSelected(): string {
+    return environment.defaultTabSelected;
+  }
 }

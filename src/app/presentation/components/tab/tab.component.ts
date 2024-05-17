@@ -18,8 +18,7 @@ export class TabComponent {
   }
 
   private setSelectedTab() {
-    const currentState = this.stateServie.getState();
-    this.selectedTab = currentState.selectedTab;
+    this.selectedTab = this.stateServie.getState().selectedTab;
   }
 
   private changeTab(tab: string) {
