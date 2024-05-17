@@ -1,21 +1,44 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ISearchService } from '../../../core/interfaces/services/search/i-search.service';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { debounceTime, distinctUntilChanged } from 'rxjs';
 
 @Component({
   selector: 'app-search',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './search.component.html',
   styleUrl: './search.component.css'
 })
-export class SearchComponent {
+export class SearchComponent implements OnInit {
   isInputActive: boolean = false;
+  searchControl = new FormControl();
+
+  constructor(private searchService: ISearchService) { }
+
+  ngOnInit(): void {
+    this.search();
+  }
+
+  private search() {
+    this.searchControl.valueChanges.pipe(
+      debounceTime(300),
+      distinctUntilChanged(),
+    ).subscribe(value => {
+      if (value.length >= 3) {
+        this.searchService.setSearchQuery(value);
+      } else {
+        this.searchService.setSearchQuery('');
+      }
+    });
+  }
 
   inputFocus() {
     this.isInputActive = true;
   }
 
-  inputBlur(){
+  inputBlur() {
     this.isInputActive = false;
   }
 }
