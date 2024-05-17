@@ -7,20 +7,22 @@ import { TvSerieDetails } from "../../../core/models/tv-serie/tv-serie.details.m
 import { HttpClient } from "@angular/common/http";
 import { ConfigurationService } from "../../services/configuration.service";
 
-@Injectable()
-export class TvSerieRepository extends ITvSerieRepository {
+@Injectable({
+    providedIn: 'root'
+})
+export class TvSerieRepository implements ITvSerieRepository {
 
-    constructor(private http: HttpClient, private config: ConfigurationService) {
-        super();
-    }
+    constructor(private http: HttpClient, private config: ConfigurationService) {}
 
-    override getTvSerieDetails(tvSerieId: number): Observable<TvSerieDetails> {
+    getTvSerieDetails(tvSerieId: number): Observable<TvSerieDetails> {
         return this.http.get<TvSerieDetails>(this.config.getApiUrl() + `tv/${tvSerieId}`, {headers: this.config.getApiHeaders()});
     }
-    override getTvSerieImages(tvSerieId: number): Observable<Image> {
+    
+    getTvSerieImages(tvSerieId: number): Observable<Image> {
         return this.http.get<Image>(this.config.getApiUrl() + `tv/${tvSerieId}/images`, {headers: this.config.getApiHeaders()});
     }
-    override getTvSerieVideos(tvSerieId: number): Observable<Video> {
+
+    getTvSerieVideos(tvSerieId: number): Observable<Video> {
         return this.http.get<Video>(this.config.getApiUrl() + `tv/${tvSerieId}/videos`, {headers: this.config.getApiHeaders()});
     }
 

@@ -1,41 +1,9 @@
 <div id="media-container">
-    <div class="media-row">
+    <div *ngFor="let mdp of mediaDataPairs;" class="media-row">
         <div class="media-cell media-cell-right">
-            <app-media-card></app-media-card>
+            <app-media-card [mediaObject]="mdp[0]"></app-media-card>
         </div>
         <div class="media-cell media-cell-left">
-            <app-media-card></app-media-card>
+            <app-media-card [mediaObject]="mdp[1]"></app-media-card>
         </div>
     </div>
-    <div class="media-row">
-        <div class="media-cell media-cell-right">
-            <app-media-card></app-media-card>
-        </div>
-        <div class="media-cell media-cell-left">
-            <app-media-card></app-media-card>
-        </div>
-    </div>  <div class="media-row">
-        <div class="media-cell media-cell-right">
-            <app-media-card></app-media-card>
-        </div>
-        <div class="media-cell media-cell-left">
-            <app-media-card></app-media-card>
-        </div>
-    </div>
-    <div class="media-row">
-        <div class="media-cell media-cell-right">
-            <app-media-card></app-media-card>
-        </div>
-        <div class="media-cell media-cell-left">
-            <app-media-card></app-media-card>
-        </div>
-    </div>
-    <div class="media-row">
-        <div class="media-cell media-cell-right">
-            <app-media-card></app-media-card>
-        </div>
-        <div class="media-cell media-cell-left">
-            <app-media-card></app-media-card>
-        </div>
-    </div>
-</div>

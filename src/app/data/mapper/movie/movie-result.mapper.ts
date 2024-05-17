@@ -1,15 +1,19 @@
+import { Injectable } from "@angular/core";
 import { Mapper } from "../../../core/base/mapper";
 import { MovieResult } from "../../../core/models/movie/movie-result.model";
-import { MovieResultDto } from "../../dtos/movie/movie-result.dto";
+import { MediaResultDto } from "../../dtos/media/media-result.dto";
 
-export class MovieResultMapper extends Mapper<MovieResult, MovieResultDto> {
-
-    override mapFrom(param: MovieResult): MovieResultDto {
+@Injectable({
+    providedIn: 'root'
+})
+export class MovieResultMapper implements Mapper<MovieResult, MediaResultDto> {
+     
+    mapFrom(param: MovieResult): MediaResultDto {
         throw new Error("Method not implemented.");
     }
-
-    override mapFromList(param: MovieResult[]): MovieResultDto[] {
-        let movies: MovieResultDto[] = [];
+     
+    mapFromList(param: MovieResult[]): MediaResultDto[] {
+        let movies: MediaResultDto[] = [];
 
         param.forEach(obj => {
             movies.push({

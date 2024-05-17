@@ -6,16 +6,17 @@ import { HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class ConfigurationService extends IConfigurationService {
-
-  constructor() {
-    super()
+export class ConfigurationService implements IConfigurationService {
+  
+  getApiUrlImages(): string {
+    return environment.apiUrlImages;
   }
 
-  override getApiUrl(): string {
+  getApiUrl(): string {
     return environment.apiUrl;
   }
-  override getApiHeaders(): HttpHeaders {
+  
+  getApiHeaders(): HttpHeaders {
     let headers = new HttpHeaders();
     headers = headers.set('Content-Type', environment.headers.accept);
     headers = headers.set('Authorization', environment.headers.Authorization);

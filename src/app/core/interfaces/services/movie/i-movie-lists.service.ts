@@ -1,6 +1,6 @@
 import { Observable } from "rxjs";
-import { MovieResultDto } from "../../../../data/dtos/movie/movie-result.dto";
+import { MediaResultDto } from "../../../../data/dtos/media/media-result.dto";
 
 export abstract class IMovieListsService {
-    abstract getTopRadtedMovies(): Observable<MovieResultDto[]>;
+    abstract getTopRadtedMovies(): Observable<MediaResultDto[]>;
 }
