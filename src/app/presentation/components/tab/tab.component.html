@@ -1,0 +1,4 @@
+<div id="tab-container">
+    <button id="tab-movies" class="tab-selector" [ngClass]="{'tab-selected': selectedTab === 'movies', 'tab-not-selected': selectedTab === 'tv-shows'}" [disabled]="selectedTab === 'movies'" (click)="selectTab()">Movies</button>
+    <button id="tab-tv-shows" class="tab-selector" [ngClass]="{'tab-not-selected': selectedTab === 'movies', 'tab-selected': selectedTab === 'tv-shows'}" [disabled]="selectedTab === 'tv-shows'" (click)="selectTab()">TV Shows</button>
+</div>
