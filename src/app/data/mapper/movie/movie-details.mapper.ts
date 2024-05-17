@@ -1,10 +1,10 @@
 import { Mapper } from "../../../core/base/mapper";
 import { MovieDetails } from "../../../core/models/movie/movie-details.model";
-import { MovieDetailsDto } from "../../dtos/movie/movie-details.dto";
+import { MediaDetailsDto } from "../../dtos/media/media-details.dto";
 
-export class MovieDetailsMapper extends Mapper<MovieDetails, MovieDetailsDto> {
+export class MovieDetailsMapper extends Mapper<MovieDetails, MediaDetailsDto> {
 
-    override mapFrom(param: MovieDetails): MovieDetailsDto {
+    override mapFrom(param: MovieDetails): MediaDetailsDto {
         return {
             id: param.id,
             title: param.title,
@@ -13,7 +13,7 @@ export class MovieDetailsMapper extends Mapper<MovieDetails, MovieDetailsDto> {
         }
     }
 
-    override mapFromList(param: MovieDetails[]): MovieDetailsDto[] {
+    override mapFromList(param: MovieDetails[]): MediaDetailsDto[] {
         throw new Error("Method not implemented.");
     }
 

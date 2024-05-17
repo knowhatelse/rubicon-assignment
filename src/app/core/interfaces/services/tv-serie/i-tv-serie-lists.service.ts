@@ -1,6 +1,6 @@
 import { Observable } from "rxjs";
-import { TvSerieResultDto } from "../../../../data/dtos/tv-serie/tv-serie-result.dto";
+import { MediaResultDto } from "../../../../data/dtos/media/media-result.dto";
 
 export abstract class ITvSerieListsService {
-    abstract getTopRatedTvSeries(): Observable<TvSerieResultDto[]>;
+    abstract getTopRatedTvSeries(): Observable<MediaResultDto[]>;
 }

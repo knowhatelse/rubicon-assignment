@@ -1,20 +1,24 @@
+import { Injectable } from "@angular/core";
 import { Mapper } from "../../../core/base/mapper";
 import { TvSerieResult } from "../../../core/models/tv-serie/tv-serie-result.model";
-import { TvSerieResultDto } from "../../dtos/tv-serie/tv-serie-result.dto";
+import { MediaResultDto } from "../../dtos/media/media-result.dto";
 
-export class TvSerieResultMapper extends Mapper<TvSerieResult, TvSerieResultDto> {
+@Injectable({
+    providedIn: 'root'
+})
+export class TvSerieResultMapper extends Mapper<TvSerieResult, MediaResultDto> {
     
-    override mapFrom(param: TvSerieResult): TvSerieResultDto {
+    override mapFrom(param: TvSerieResult): MediaResultDto {
         throw new Error("Method not implemented.");
     }
   
-    override mapFromList(param: TvSerieResult[]): TvSerieResultDto[] {
-        let tvSeries: TvSerieResultDto[] = [];
+    override mapFromList(param: TvSerieResult[]): MediaResultDto[] {
+        let tvSeries: MediaResultDto[] = [];
 
         param.forEach(obj => {
             tvSeries.push({
                 id: obj.id,
-                name: obj.name,
+                title: obj.name,
                 poster_path: obj.poster_path
             });
         });

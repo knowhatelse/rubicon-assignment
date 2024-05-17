@@ -1,5 +1,6 @@
 export const environment = {
     production: true,
+    apiUrlImages: 'https://image.tmdb.org/t/p/w185',
     apiUrl: 'https://api.themoviedb.org/3/',
     headers: {
         accept: 'application/json',
