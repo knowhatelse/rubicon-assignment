@@ -15,12 +15,13 @@ import { IStateService } from '../../../core/interfaces/services/i-state-service
 export class SearchComponent implements OnInit {
   isInputActive: boolean = false;
   searchControl = new FormControl();
+  searchText: string = '';
 
   constructor(private searchService: ISearchService, private stateService: IStateService) { 
   }
 
   ngOnInit(): void {
-    this.searchControl.setValue(this.stateService.getState().querySeach);
+    //this.searchText = this.stateService.getState().querySeach;
     this.search();
   }
 

@@ -6,7 +6,7 @@ import { State } from '../../core/models/other/state.model';
   providedIn: 'root'
 })
 export class StateService implements IStateService{
-  selectedTab: string = 'movies';
+  selectedTab: string = 'tv-shows';
   querySearch: string = ' ';
 
   constructor() { }

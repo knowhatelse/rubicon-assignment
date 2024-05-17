@@ -71,7 +71,7 @@ export class MediaDetailComponent implements OnInit {
         this.media = response;
         this.setImageFullUrl();
       },
-      error: error => console.log(error)
+      error: error => console.error(error)
     });
   }
 
@@ -79,9 +79,8 @@ export class MediaDetailComponent implements OnInit {
     this.movieService.getMovieVideos(id).subscribe({
       next: response => {
         this.mediaTrailer = response.filter((video:any)=>video.type === 'Trailer');
-        console.log(this.mediaTrailer[0]);
       },
-      error: error => console.log(error)
+      error: error => console.error(error)
     });
   }
 
@@ -96,7 +95,7 @@ export class MediaDetailComponent implements OnInit {
         this.media = response;
         this.setImageFullUrl();
       },
-      error: error => console.log(error)
+      error: error => console.error(error)
     });
   }
 
@@ -104,9 +103,8 @@ export class MediaDetailComponent implements OnInit {
     this.tvSerieService.getTvSerieVideos(id).subscribe({
       next: response => {
         this.mediaTrailer = response.filter((video:any)=>video.type === 'Trailer');
-        console.log(this.mediaTrailer[0]);
       },
-      error: error => console.log(error)
+      error: error => console.error(error)
     });
   }
 

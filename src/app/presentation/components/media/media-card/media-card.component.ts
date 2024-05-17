@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './media-card.component.css'
 })
 export class MediaCardComponent implements OnChanges {
-  @Input() mediaObject: any;
+  @Input() mediaObject: any = {};
   imageFullUrl: string | undefined;
 
   constructor(private config: IConfigurationService) {
@@ -28,5 +28,5 @@ export class MediaCardComponent implements OnChanges {
   private setImageApiUrl(): void {
     this.imageFullUrl = this.config.getApiUrlImages();
   }
-  
+
 }

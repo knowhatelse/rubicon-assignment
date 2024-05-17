@@ -12,7 +12,7 @@ import { MediaResultDto } from '../../../../data/dtos/media/media-result.dto';
   styleUrl: './media-container.component.css'
 })
 export class MediaContainerComponent implements OnChanges {
-  @Input() mediaData: any = {};
+  @Input() mediaData: any[] = [];
   mediaDataPairs: any;
 
   constructor(private router: Router) {
