@@ -26,10 +26,10 @@ export class MovieService implements IMovieService {
     );
   }
 
-  getMovieVideos(movieId: number): Observable<VideoResultDto> {
+  getMovieVideos(movieId: number): Observable<VideoResultDto[]> {
     return this.movieRepositorie.getMovieVideos(movieId).pipe(
-      map((response: VideoResult) => this.videoResultMapper.mapFrom(response))
+      map((response: {results:VideoResult[]}) => this.videoResultMapper.mapFromList(response.results))
     );
   }
-
+ 
 }

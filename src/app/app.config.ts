@@ -29,13 +29,20 @@ import { ITvSerieRepository } from './core/interfaces/repositories/tv-serie/i-tv
 import { TabSwitchService } from './data/services/tab-switch.service';
 import { ITabSwitchService } from './core/interfaces/services/i-tab-switch.service';
 import { TvSerieResultMapper } from './data/mapper/tv-serie/tv-serie-result.mapper';
+import { MovieDetailsMapper } from './data/mapper/movie/movie-details.mapper';
+import { VideoResultMapper } from './data/mapper/media/video-result.mapper';
+import { TvSerieDetailsMapper } from './data/mapper/tv-serie/tv-serie-details.mapper';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
     provideHttpClient(),
+    provideRouter(routes),
     MovieResultMapper,
+    MovieDetailsMapper,
+    VideoResultMapper,
     TvSerieResultMapper,
+    TvSerieDetailsMapper,
     { provide: IConfigurationService, useClass: ConfigurationService},
     { provide: ITabSwitchService, useClass: TabSwitchService},
     { provide: IMovieListsService, useClass: MovieListsService },

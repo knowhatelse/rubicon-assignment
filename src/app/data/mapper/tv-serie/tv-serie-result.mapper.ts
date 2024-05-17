@@ -19,7 +19,8 @@ export class TvSerieResultMapper extends Mapper<TvSerieResult, MediaResultDto> {
             tvSeries.push({
                 id: obj.id,
                 title: obj.name,
-                poster_path: obj.poster_path
+                poster_path: obj.poster_path,
+                type: 'tv-serie'
             });
         });
 

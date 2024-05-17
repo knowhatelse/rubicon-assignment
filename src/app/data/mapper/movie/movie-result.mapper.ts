@@ -19,7 +19,8 @@ export class MovieResultMapper implements Mapper<MovieResult, MediaResultDto> {
             movies.push({
                 id: obj.id,
                 title: obj.title,
-                poster_path: obj.poster_path
+                poster_path: obj.poster_path,
+                type: 'movie'
             });
         });
 
