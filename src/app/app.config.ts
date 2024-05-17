@@ -32,6 +32,8 @@ import { TvSerieResultMapper } from './data/mapper/tv-serie/tv-serie-result.mapp
 import { MovieDetailsMapper } from './data/mapper/movie/movie-details.mapper';
 import { VideoResultMapper } from './data/mapper/media/video-result.mapper';
 import { TvSerieDetailsMapper } from './data/mapper/tv-serie/tv-serie-details.mapper';
+import { IStateService } from './core/interfaces/services/i-state-service.service';
+import { StateService } from './data/services/state.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -44,6 +46,7 @@ export const appConfig: ApplicationConfig = {
     TvSerieResultMapper,
     TvSerieDetailsMapper,
     { provide: IConfigurationService, useClass: ConfigurationService},
+    { provide: IStateService, useClass: StateService},
     { provide: ITabSwitchService, useClass: TabSwitchService},
     { provide: IMovieListsService, useClass: MovieListsService },
     { provide: IMovieService, useClass: MovieService },

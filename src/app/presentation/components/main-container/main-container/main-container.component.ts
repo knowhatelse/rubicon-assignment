@@ -7,6 +7,7 @@ import { IMovieListsService } from '../../../../core/interfaces/services/movie/i
 import { ITvSerieListsService } from '../../../../core/interfaces/services/tv-serie/i-tv-serie-lists.service';
 import { ITabSwitchService } from '../../../../core/interfaces/services/i-tab-switch.service';
 import { ISearchService } from '../../../../core/interfaces/services/search/i-search.service';
+import { IStateService } from '../../../../core/interfaces/services/i-state-service.service';
 
 @Component({
     selector: 'app-main-container',
@@ -25,17 +26,27 @@ export class MainContainerComponent implements OnInit {
         private tvSerieListsService: ITvSerieListsService,
         private tabSwitchService: ITabSwitchService,
         private changeDetector: ChangeDetectorRef,
-        private searchService: ISearchService
-    ) { }
+        private searchService: ISearchService,
+        private stateService: IStateService
+    ) { 
+        this.getState();
+    }
 
     ngOnInit(): void {
         this.search();
         this.tab();
     }
 
+    private getState(): void {
+        const currentState = this.stateService.getState();
+        this.currentTab = currentState.selectedTab;
+        this.currentSearchQuery = currentState.querySeach;
+    }
+
     private tab() {
         this.tabSwitchService.getCurrentTab().subscribe(tab => {
             this.currentTab = tab;
+            this.stateService.setTabState(tab);
             this.switchTab();
         });
     }
@@ -75,6 +86,8 @@ export class MainContainerComponent implements OnInit {
     private search() {
         this.searchService.getSearchQuery().subscribe(sq => {
             this.currentSearchQuery = sq;
+            this.stateService.setQuerySearchState(sq);
+
             if (sq !== '') {
                 this.switchSearch(sq);
             } else {

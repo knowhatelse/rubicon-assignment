@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ITabSwitchService } from '../../../core/interfaces/services/i-tab-switch.service';
+import { IStateService } from '../../../core/interfaces/services/i-state-service.service';
 
 @Component({
   selector: 'app-tab',
@@ -10,9 +11,16 @@ import { ITabSwitchService } from '../../../core/interfaces/services/i-tab-switc
   styleUrl: './tab.component.css'
 })
 export class TabComponent {
-  selectedTab: string = "movies"
+  selectedTab: string = ' '
 
-  constructor(private tabSwitchService: ITabSwitchService) {}
+  constructor(private tabSwitchService: ITabSwitchService, private stateServie: IStateService) {
+    this.setSelectedTab();
+  }
+
+  private setSelectedTab() {
+    const currentState = this.stateServie.getState();
+    this.selectedTab = currentState.selectedTab;
+  }
 
   private changeTab(tab: string) {
     this.tabSwitchService.switchTab(tab);
