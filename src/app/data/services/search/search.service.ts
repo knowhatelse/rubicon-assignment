@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ISearchService } from '../../../core/interfaces/services/search/i-search.service';
-import { Observable, map, of } from 'rxjs';
+import { BehaviorSubject, Observable, map, of } from 'rxjs';
 import { MovieResultMapper } from '../../mapper/movie/movie-result.mapper';
 import { TvSerieResultMapper } from '../../mapper/tv-serie/tv-serie-result.mapper';
 import { MovieResult } from '../../../core/models/movie/movie-result.model';
@@ -12,12 +12,22 @@ import { MediaResultDto } from '../../dtos/media/media-result.dto';
   providedIn: 'root'
 })
 export class SearchService implements ISearchService {
+  private searchQuery = new BehaviorSubject<string>('');
+  private sQuery$ = this.searchQuery.asObservable();
 
   constructor(
     private searchRepository: ISearchRepository, 
     private movieResultMapper: MovieResultMapper, 
     private tvSerieResultMapper: TvSerieResultMapper
   ) { }
+   
+  setSearchQuery(query: string): void {
+    this.searchQuery.next(query);
+  }
+
+  getSearchQuery(): Observable<string> {
+    return this.sQuery$;
+  }
 
   searchMovies(query: string): Observable<MediaResultDto[]> {
     return this.searchRepository.searchMovies(query).pipe(

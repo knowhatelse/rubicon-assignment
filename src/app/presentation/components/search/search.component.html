@@ -3,5 +3,5 @@
         <img *ngIf="!isInputActive" src="..\..\assets\icons\search\search.png">
         <img *ngIf="isInputActive" src="..\..\assets\icons\search\search-accent.png">
     </div>
-    <input id="search-input" type="text" placeholder="Search" (focus)="inputFocus()" (blur)="inputBlur()">
+    <input id="search-input" type="text" placeholder="Search" [formControl]="searchControl"(focus)="inputFocus()" (blur)="inputBlur()">
 </div>
