@@ -1,6 +1,6 @@
-<div id="media-card">
+<div *ngIf="mediaObject.title !== '' "id="media-card">
     <div id="media-image-container">
-        <img src="https://i.ebayimg.com/images/g/gnEAAOSwP~tW4HMS/s-l1200.webp" alt="">
+        <img [src]="imageFullUrl" alt="">
     </div>
-    <div id="media-title-container"><p>Titanic</p></div>
+    <div id="media-title-container"><p>{{mediaObject.title}}</p></div>
 </div>

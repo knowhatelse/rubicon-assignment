@@ -5,14 +5,15 @@ import { MovieResults } from "../../../core/models/movie/movie-results.model";
 import { HttpClient } from "@angular/common/http";
 import { ConfigurationService } from "../../services/configuration.service";
 
-@Injectable()
-export class MovieListsRepository extends IMovieListsRepository {
+@Injectable({
+    providedIn: 'root'
+})
+export class MovieListsRepository implements IMovieListsRepository {
 
     constructor(private http: HttpClient, private config: ConfigurationService) {
-        super();
     }
-
-    override getTopRadtedMovies(): Observable<MovieResults> {
+     
+    getTopRadtedMovies(): Observable<MovieResults> {
         return this.http.get<MovieResults>(this.config.getApiUrl() + `movie/top_rated`, { headers: this.config.getApiHeaders() });
     }
 

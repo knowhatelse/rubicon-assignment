@@ -5,25 +5,25 @@ import { MovieDetails } from "../../../core/models/movie/movie-details.model";
 import { Injectable } from "@angular/core";
 import { ConfigurationService } from "../../services/configuration.service";
 import { HttpClient } from "@angular/common/http";
-import { VideoResult } from "../../../core/models/media/video-result.model";
+import { Video } from "../../../core/models/media/video.model";
 
-@Injectable()
-export class MovieRepository extends IMovieRepository {
+@Injectable({
+    providedIn: 'root'
+})
+export class MovieRepository implements IMovieRepository {
 
-    constructor(private http: HttpClient, private config: ConfigurationService){
-        super();
-    }
+    constructor(private http: HttpClient, private config: ConfigurationService) {}
 
-    override getMovieDetails(movieId: number): Observable<MovieDetails> {
+    getMovieDetails(movieId: number): Observable<MovieDetails> {
         return this.http.get<MovieDetails>(this.config.getApiUrl() + `movie/${movieId}`, {headers: this.config.getApiHeaders()});
     }
 
-    override getMovieImages(movieId: number): Observable<Image> {
+    getMovieImages(movieId: number): Observable<Image> {
         return this.http.get<Image>(this.config.getApiUrl() + `movie/${movieId}/images`, {headers: this.config.getApiHeaders()});
     }
 
-    override getMovieVideos(movieId: number): Observable<VideoResult> {
-        return this.http.get<VideoResult>(this.config.getApiUrl() + `movie/${movieId}/videos`, {headers: this.config.getApiHeaders()});
+    getMovieVideos(movieId: number): Observable<Video> {
+        return this.http.get<Video>(this.config.getApiUrl() + `movie/${movieId}/videos`, {headers: this.config.getApiHeaders()});
     }
 
 }

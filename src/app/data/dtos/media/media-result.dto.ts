@@ -1,6 +1,6 @@
-export interface MovieDetailsDto {
+export interface MediaResultDto {
     id: number
     title: string
     poster_path?: string
-    overview: string
+    type: string
 }

@@ -10,9 +10,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 300px;
+    height: 475px;
     width: 100%;
     margin-bottom: 60px;
+
+    opacity: 0;
+    transform: scale(0.9);
+    animation: fadeInAndScale 0.5s ease forwards;
 }
 
 .media-cell {
@@ -43,4 +47,16 @@
         margin-bottom: 50px;
     }
     
+}
+
+@keyframes fadeInAndScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
 }

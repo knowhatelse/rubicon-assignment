@@ -42,12 +42,12 @@
 }
 
 .tab-not-selected:hover {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.25);
     cursor: pointer;
     color: #eeeeee;
 }
 
-@media only screen and (max-width: 900px){
+@media only screen and (max-width: 1086px){
     #tab-container{
         justify-content: center;
     }

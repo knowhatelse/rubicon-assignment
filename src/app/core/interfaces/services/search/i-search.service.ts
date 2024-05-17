@@ -1,8 +1,9 @@
 import { Observable } from "rxjs";
-import { MovieResultDto } from "../../../../data/dtos/movie/movie-result.dto";
-import { TvSerieResultDto } from "../../../../data/dtos/tv-serie/tv-serie-result.dto";
+import { MediaResultDto } from "../../../../data/dtos/media/media-result.dto";
 
 export abstract class ISearchService {
-    abstract searchMovies(query:string): Observable<MovieResultDto[]>;
-    abstract searchTvSeries(query: string): Observable<TvSerieResultDto[]>;
+    abstract setSearchQuery(query: string): void;
+    abstract getSearchQuery(): Observable<string>;
+    abstract searchMovies(query:string): Observable<MediaResultDto[]>;
+    abstract searchTvSeries(query: string): Observable<MediaResultDto[]>;
 }
