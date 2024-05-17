@@ -5,7 +5,7 @@ import { MovieDetails } from "../../../core/models/movie/movie-details.model";
 import { Injectable } from "@angular/core";
 import { ConfigurationService } from "../../services/configuration.service";
 import { HttpClient } from "@angular/common/http";
-import { VideoResult } from "../../../core/models/media/video-result.model";
+import { Video } from "../../../core/models/media/video.model";
 
 @Injectable({
     providedIn: 'root'
@@ -22,8 +22,8 @@ export class MovieRepository implements IMovieRepository {
         return this.http.get<Image>(this.config.getApiUrl() + `movie/${movieId}/images`, {headers: this.config.getApiHeaders()});
     }
 
-    getMovieVideos(movieId: number): Observable<VideoResult> {
-        return this.http.get<VideoResult>(this.config.getApiUrl() + `movie/${movieId}/videos`, {headers: this.config.getApiHeaders()});
+    getMovieVideos(movieId: number): Observable<Video> {
+        return this.http.get<Video>(this.config.getApiUrl() + `movie/${movieId}/videos`, {headers: this.config.getApiHeaders()});
     }
 
 }

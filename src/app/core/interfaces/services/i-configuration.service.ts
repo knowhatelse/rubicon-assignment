@@ -4,4 +4,5 @@ export abstract class IConfigurationService {
     abstract getApiUrlImages(): string;
     abstract getApiUrl(): string;
     abstract getApiHeaders(): HttpHeaders;
+    abstract getYouTubeUrl(): string;
 }

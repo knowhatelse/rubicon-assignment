@@ -4,5 +4,5 @@ import { MediaDetailsDto } from "../../../../data/dtos/media/media-details.dto";
 
 export abstract class IMovieService {
     abstract getMovieDetails(movieId:number): Observable<MediaDetailsDto>;
-    abstract getMovieVideos(movieId:number): Observable<VideoResultDto>;
+    abstract getMovieVideos(movieId:number): Observable<VideoResultDto[]>;
 }

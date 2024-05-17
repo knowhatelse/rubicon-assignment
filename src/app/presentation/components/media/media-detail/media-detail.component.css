@@ -1,10 +1,22 @@
-:host *, :host *::before, :host *::after {
+:host *,
+:host *::before,
+:host *::after {
     box-sizing: border-box;
-  }
+}
+
+#media-detail-content {
+    height: 100%;
+    width: 100vw;
+    margin: 0px;
+    padding: 0px;
+    display:flex;
+    justify-content: center;
+    align-self: center;
+}
 
 #media-detail-container {
     height: 100%;
-    width: 100%;
+    width: 60%;
     max-width: 1440px;
     margin-top: 50px;
     margin-bottom: 60px;
@@ -48,11 +60,11 @@
 #media-image-container {
     max-width: 100%;
     min-width: 100%;
-    min-height: 250px;
-    max-height: 500px;
+    min-height: 650px;
+    max-height: 100%;
 }
 
-#media-cover-image {
+.media-cover-image {
     min-width: 100%;
     max-width: 100%;
     max-height: 100%;
@@ -94,4 +106,14 @@
     color: #eeeeee;
     text-align: justify;
     line-height: 1.75rem;
+}
+
+@media only screen and (max-width: 900px){
+    #media-image-container {
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 400px;
+        max-height: 1440px;
+    }
+    
 }

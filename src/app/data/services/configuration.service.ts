@@ -22,4 +22,8 @@ export class ConfigurationService implements IConfigurationService {
     headers = headers.set('Authorization', environment.headers.Authorization);
     return headers;
   }
+  
+  getYouTubeUrl(): string {
+    return environment.ytUrl;
+  }
 }

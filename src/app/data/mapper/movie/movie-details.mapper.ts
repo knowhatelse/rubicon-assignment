@@ -1,10 +1,14 @@
+import { Injectable } from "@angular/core";
 import { Mapper } from "../../../core/base/mapper";
 import { MovieDetails } from "../../../core/models/movie/movie-details.model";
 import { MediaDetailsDto } from "../../dtos/media/media-details.dto";
 
-export class MovieDetailsMapper extends Mapper<MovieDetails, MediaDetailsDto> {
+@Injectable({
+    providedIn: 'root'
+})
+export class MovieDetailsMapper implements Mapper<MovieDetails, MediaDetailsDto> {
 
-    override mapFrom(param: MovieDetails): MediaDetailsDto {
+    mapFrom(param: MovieDetails): MediaDetailsDto {
         return {
             id: param.id,
             title: param.title,
@@ -13,7 +17,7 @@ export class MovieDetailsMapper extends Mapper<MovieDetails, MediaDetailsDto> {
         }
     }
 
-    override mapFromList(param: MovieDetails[]): MediaDetailsDto[] {
+    mapFromList(param: MovieDetails[]): MediaDetailsDto[] {
         throw new Error("Method not implemented.");
     }
 
