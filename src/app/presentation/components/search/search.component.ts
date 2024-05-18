@@ -2,8 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ISearchService } from '../../../core/interfaces/services/search/i-search.service';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { debounceTime, distinctUntilChanged } from 'rxjs';
-import { IStateService } from '../../../core/interfaces/services/i-state-service.service';
+import { debounceTime, distinctUntilChanged, of, switchMap, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-search',
@@ -15,13 +14,10 @@ import { IStateService } from '../../../core/interfaces/services/i-state-service
 export class SearchComponent implements OnInit {
   isInputActive: boolean = false;
   searchControl = new FormControl();
-  searchText: string = '';
 
-  constructor(private searchService: ISearchService, private stateService: IStateService) { 
-  }
+  constructor(private searchService: ISearchService) { }
 
   ngOnInit(): void {
-    //this.searchText = this.stateService.getState().querySeach;
     this.search();
   }
 
@@ -32,10 +28,8 @@ export class SearchComponent implements OnInit {
     ).subscribe(value => {
       if (value.length >= 3) {
         this.searchService.setSearchQuery(value);
-        this.stateService.setQuerySearchState(value);
       } else {
         this.searchService.setSearchQuery('');
-        this.stateService.setQuerySearchState('');
       }
     });
   }

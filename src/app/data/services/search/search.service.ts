@@ -12,8 +12,8 @@ import { MediaResultDto } from '../../dtos/media/media-result.dto';
   providedIn: 'root'
 })
 export class SearchService implements ISearchService {
-  private searchQuery = new BehaviorSubject<string>('');
-  private sQuery$ = this.searchQuery.asObservable();
+  private searchQuerySubject: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  private searchQuery$: Observable<string> = this.searchQuerySubject.asObservable();
 
   constructor(
     private searchRepository: ISearchRepository, 
@@ -22,11 +22,11 @@ export class SearchService implements ISearchService {
   ) { }
    
   setSearchQuery(query: string): void {
-    this.searchQuery.next(query);
+    this.searchQuerySubject.next(query);
   }
 
   getSearchQuery(): Observable<string> {
-    return this.sQuery$;
+    return this.searchQuery$;
   }
 
   searchMovies(query: string): Observable<MediaResultDto[]> {
