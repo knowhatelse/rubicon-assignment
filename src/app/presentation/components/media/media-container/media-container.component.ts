@@ -23,11 +23,14 @@ export class MediaContainerComponent implements OnChanges {
   }
 
   private createMediaDataPairs(): any[] {
-    let pairs: any[] = [];
-    for (let i = 0; i < this.mediaData.length; i += 2) {
-      pairs.push([this.mediaData[i], this.mediaData[i + 1]])
+    if(this.mediaData){
+      let pairs: any[] = [];
+      for (let i = 0; i < this.mediaData.length; i += 2) {
+        pairs.push([this.mediaData[i], this.mediaData[i + 1]])
+      }
+      return pairs;
     }
-    return pairs;
+    return [];
   }
 
   navigateToDetails(md: MediaResultDto) {
