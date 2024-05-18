@@ -29,25 +29,25 @@ export class MainContainerComponent implements OnInit {
         private searchService: ISearchService,
         private stateService: IStateService
     ) {
-        this.getState();
+        //this.getState();
     }
 
     ngOnInit(): void {
         this.search();
         this.tab();
+        this.currentTab = this.stateService.getState().selectedTab;
     }
 
-    private getState(): void {
-        this.currentTab = this.stateService.getState().selectedTab;
-        this.currentSearchQuery = this.stateService.getState().querySeach;
-    }
+    // private getState(): void {
+    //     this.currentTab = this.stateService.getState().selectedTab;
+    //     this.currentSearchQuery = this.stateService.getState().querySeach;
+    // }
 
     private search() {
         this.searchService.getSearchQuery().subscribe(sq => {
             this.currentSearchQuery = sq;
             if (sq !== '') {
                 this.switchSearch(sq);
-
             } else {
                 this.switchTab();
             }
@@ -55,7 +55,7 @@ export class MainContainerComponent implements OnInit {
     }
 
     private switchSearch(searchQuery: string) {
-        this.stateService.setQuerySearchState(searchQuery);
+        //this.stateService.setQuerySearchState(searchQuery);
         if (this.currentTab === 'movies') {
             this.searchMovies(searchQuery);
         } else {
@@ -66,21 +66,23 @@ export class MainContainerComponent implements OnInit {
     private tab() {
         this.tabSwitchService.getCurrentTab().subscribe(tab => {
             this.currentTab = tab;
-            this.stateService.setTabState(tab);
+            //this.stateService.setTabState(tab);
             this.switchTab();
         });
     }
 
     private switchTab(): void {
-        if (this.currentSearchQuery) {
-            this.switchSearch(this.currentSearchQuery);
+        if (this.currentSearchQuery.length >= 3) {
+            if (this.currentTab === 'movies') {
+                this.searchMovies(this.currentSearchQuery);
+            } else {
+                this.searchTvSeries(this.currentSearchQuery);
+            }
         } else {
             if (this.currentTab === 'movies') {
                 this.getTopRatedMovies();
-                this.stateService.setTabState('movies');
             } else {
                 this.getTopRatedTvSeries();
-                this.stateService.setTabState('tv-shows')
             }
         }
     }
