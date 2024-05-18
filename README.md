@@ -1,7 +1,10 @@
 # RUBICON Assignment Project
+</br>
 
-## **Details**
+## **Info**
 #### -> Framework: Angular (v17.3.8). </br>
+#### **Note:** Starting from Angular 17, components are standalone by default, so there are no modules. </br>
+</br>
 
 ## **How to Run it**
 #### 1. Clone the repository to your local machine.
@@ -9,4 +12,4 @@
 #### 3. Run the comand **"npm run start"**.
 </br>
 
-### **"npm run start"** should install all necessary dependencies, build the project, serve it and open it for you in the web browser
+#### **Note:** "npm run start" should install all necessary dependencies, build the project, serve it and open it for you in the web browser.
